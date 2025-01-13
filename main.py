@@ -127,7 +127,6 @@ def generate_captcha_image(code):
 def captcha():
     if request.method == 'GET':
         if 'passed_captcha' in session and session['passed_captcha']:
-            # CAPTCHA has already been passed, redirect to success page
             return redirect(url_for('success'))
 
         # Generate a random 4-digit CAPTCHA code
@@ -142,23 +141,21 @@ def captcha():
         # Generate the CAPTCHA image
         captcha_image = generate_captcha_image(code)
 
+        # Pass the base64 string directly to the template
         return render_template('captcha.html', captcha_image=captcha_image, eman=userauto, ins=userdomain, error=False)
 
     elif request.method == 'POST':
         user_input = request.form['code']
         captcha_time = session.get('captcha_time', 0)
 
-        # Check if the CAPTCHA was submitted within a reasonable time (e.g., 60 seconds)
         if time.time() - captcha_time > 60:
             return render_template('captcha.html', error=True, message="Captcha expired. Please try again.")
 
-        # Check if user input matches the CAPTCHA code
         if user_input == session.get('captcha_code'):
-            # User input matches the CAPTCHA code, set the flag and redirect to success page
             session['passed_captcha'] = True
             return redirect(url_for('success'))
         else:
-            # User input does not match, generate a new CAPTCHA code and image
+            # Generate a new CAPTCHA if the user input was incorrect
             code = generate_captcha_code()
             session['captcha_code'] = code
             captcha_image = generate_captcha_image(code)
