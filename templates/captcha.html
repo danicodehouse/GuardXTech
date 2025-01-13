@@ -4,88 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Captcha</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .captcha-image {
-            margin: 20px 0;
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #0074D9;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        button:hover {
-            background-color: #005fa3;
-        }
-        .error-message {
-            color: red;
-            margin: 10px 0;
-            font-size: 14px;
-        }
-        .success-message {
-            color: green;
-            margin: 10px 0;
-            font-size: 14px;
-        }
-    </style>
 </head>
 <body>
+    <h2>Enter the CAPTCHA code:</h2>
 
-<div class="container">
-    <h2>Please complete the CAPTCHA</h2>
-    
-    {% if error %}
-        <div class="error-message">{{ message if message else "Incorrect CAPTCHA. Please try again." }}</div>
-    {% endif %}
-    
-    <form action="/" method="POST">
-        <div>
-            <!-- Display CAPTCHA Image -->
-            <img src="data:image/png;base64,{{ captcha_image | b64encode }}" class="captcha-image" alt="Captcha">
-        </div>
-        <div>
-            <label for="code">Enter the code above:</label>
-            <input type="text" name="code" id="code" required>
-        </div>
-        <button type="submit">Verify</button>
+    <!-- Display CAPTCHA image -->
+    <img src="data:image/png;base64,{{ captcha_image }}" alt="CAPTCHA Image">
+
+    <form method="POST" action="/">
+        <label for="code">Captcha Code:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Submit</button>
     </form>
-    
-    {% if not error and passed_captcha %}
-        <div class="success-message">You have passed the CAPTCHA!</div>
-    {% endif %}
-    
-</div>
 
+    {% if error %}
+        <p style="color: red;">{{ message }}</p>
+    {% endif %}
 </body>
 </html>
