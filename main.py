@@ -1,6 +1,7 @@
 from flask import Flask, request, abort, render_template, session, redirect, url_for, jsonify
 import secrets
 import random
+import io
 import string
 import time
 from PIL import Image, ImageDraw, ImageFont
